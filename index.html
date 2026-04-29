@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>temen.in — Teman Sewaan, Rasa Tidak Murahan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --pk:#F72585;--pk2:#FF6DB2;--pkp:#FFE4F0;--pkd:#C91A6B;
+  --cr:#FFF9F4;--cr2:#FFF3E8;--sand:#F5EDE4;--sand2:#EFE4D8;
+  --ink:#1A1025;--inkl:#6B5A78;
+  --df:'Bricolage Grotesque','Georgia',serif;
+  --db:'Plus Jakarta Sans','Helvetica Neue',Arial,sans-serif;
+  --s2:0 8px 40px rgba(247,37,133,.14);
+  --s3:0 20px 60px rgba(26,16,37,.15);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--db);font-weight:400;background:var(--cr);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--sand)}::-webkit-scrollbar-thumb{background:var(--pk);border-radius:3px}
+img{display:block;max-width:100%}
+button,a{font-family:var(--db);cursor:pointer;}
+a{text-decoration:none}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(255,249,244,.93);backdrop-filter:blur(24px);border-bottom:1.5px solid rgba(247,37,133,.1);padding:0 clamp(16px,5%,80px);height:66px;display:flex;align-items:center;justify-content:space-between;}
+.nlogo{display:flex;align-items:center;gap:8px;font-family:var(--df);font-size:1.6rem;font-weight:800;color:var(--ink);line-height:1;}
+.nlogo .dot{width:10px;height:10px;border-radius:50%;background:var(--pk);flex-shrink:0;animation:beat 1.8s ease-in-out infinite;}
+.nlogo span{color:var(--pk);}
+@keyframes beat{0%,100%{transform:scale(1)}40%{transform:scale(1.45)}60%{transform:scale(.9)}}
+.nlinks{display:flex;gap:24px;list-style:none;}
+.nlinks a{font-size:.85rem;font-weight:500;color:var(--inkl);transition:color .2s;position:relative;}
+.nlinks a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:2px;background:var(--pk);border-radius:1px;transform:scaleX(0);transform-origin:left;transition:transform .25s;}
+.nlinks a:hover{color:var(--pk)}.nlinks a:hover::after{transform:scaleX(1)}
+.nbtn{background:var(--pk);color:#fff;border:none;padding:10px 24px;border-radius:50px;font-size:.85rem;font-weight:700;transition:all .2s;white-space:nowrap;}
+.nbtn:hover{background:var(--pkd);transform:translateY(-2px);box-shadow:0 6px 24px rgba(247,37,133,.35);}
+
+#hero{min-height:100vh;padding:clamp(90px,12vh,130px) clamp(16px,5%,80px) 70px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;background:var(--cr);position:relative;overflow:hidden;}
+.bl{position:absolute;border-radius:50%;pointer-events:none;z-index:0;}
+.bl1{width:500px;height:500px;background:radial-gradient(circle,#FFD6EC 0%,transparent 70%);top:-100px;right:-70px;animation:dr1 12s ease-in-out infinite;}
+.bl2{width:320px;height:320px;background:radial-gradient(circle,#FFE9C2 0%,transparent 70%);bottom:0;left:-50px;animation:dr2 15s ease-in-out infinite;}
+.bl3{width:180px;height:180px;background:radial-gradient(circle,rgba(0,180,216,.1) 0%,transparent 70%);top:40%;left:44%;animation:dr3 10s ease-in-out infinite;}
+@keyframes dr1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-25px,18px) scale(1.04)}}
+@keyframes dr2{0%,100%{transform:translate(0,0)}50%{transform:translate(18px,-25px)}}
+@keyframes dr3{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.25)}}
+.hleft{position:relative;z-index:2;}
+.hpill{display:inline-flex;align-items:center;gap:8px;background:var(--pkp);border:1.5px solid rgba(247,37,133,.2);color:var(--pk);font-size:.72rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;padding:7px 16px;border-radius:50px;margin-bottom:24px;}
+.hpill::before{content:'';width:7px;height:7px;background:var(--pk);border-radius:50%;animation:beat 1.8s ease-in-out infinite;}
+h1.ht{font-family:var(--df);font-size:clamp(2.6rem,5.2vw,4.6rem);font-weight:800;line-height:1.04;color:var(--ink);margin-bottom:20px;letter-spacing:-.03em;}
+h1.ht .acc{color:var(--pk);font-style:italic;position:relative;display:inline-block;}
+h1.ht .acc::after{content:'';position:absolute;bottom:2px;left:0;right:0;height:4px;border-radius:2px;background:var(--pk);opacity:.25;}
+.hsub{font-size:1rem;color:var(--inkl);line-height:1.72;max-width:460px;margin-bottom:36px;}
+.hbtns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;}
+.bpk{background:var(--pk);color:#fff;border:none;padding:15px 32px;border-radius:50px;font-size:.92rem;font-weight:700;transition:all .25s;display:inline-flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(247,37,133,.3);}
+.bpk:hover{background:var(--pkd);transform:translateY(-3px);box-shadow:0 10px 32px rgba(247,37,133,.4);}
+.bgh{background:transparent;color:var(--ink);border:2px solid var(--sand2);padding:13px 30px;border-radius:50px;font-size:.92rem;font-weight:600;transition:all .25s;}
+.bgh:hover{border-color:var(--pk);color:var(--pk);}
+.trust{display:flex;gap:22px;flex-wrap:wrap;}
+.ti{display:flex;align-items:center;gap:8px;font-size:.8rem;color:var(--inkl);font-weight:500;}
+.tic{width:28px;height:28px;border-radius:8px;background:var(--pkp);display:flex;align-items:center;justify-content:center;font-size:.85rem;}
+.hright{position:relative;z-index:2;height:500px;}
+.mosaic{position:relative;width:100%;height:100%;}
+.mc{position:absolute;border-radius:24px;overflow:hidden;box-shadow:var(--s3);}
+.mc img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+.mc:hover img{transform:scale(1.05);}
+.mc1{width:61%;height:67%;top:0;left:0;border-radius:28px 28px 8px 28px;}
+.mc2{width:37%;height:51%;top:0;right:0;border-radius:28px 28px 28px 8px;}
+.mc3{width:42%;height:37%;bottom:0;left:10%;border-radius:8px 28px 28px 28px;}
+.mc4{width:33%;height:33%;bottom:5%;right:2%;border-radius:20px;}
+.mbadge{position:absolute;background:#fff;border-radius:14px;padding:10px 14px;box-shadow:0 8px 28px rgba(0,0,0,.1);display:flex;align-items:center;gap:10px;z-index:10;}
+.mbt{bottom:33%;right:3%;animation:flt 4s ease-in-out infinite;}
+.mbb{bottom:1%;left:27%;animation:flt 4s ease-in-out infinite .8s;}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.mbadge strong{font-size:.78rem;font-weight:700;color:var(--ink);display:block;}
+.mbadge span{font-size:.68rem;color:var(--inkl);}
+.bico{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.stats{position:absolute;bottom:-18px;left:50%;transform:translateX(-50%);background:var(--ink);border-radius:18px;padding:16px 28px;display:flex;gap:28px;box-shadow:var(--s3);white-space:nowrap;z-index:10;}
+.sn{font-family:var(--df);font-size:1.5rem;font-weight:800;color:#fff;line-height:1;}
+.sn em{color:var(--pk);font-style:normal;}
+.sl{font-size:.68rem;color:rgba(255,255,255,.4);margin-top:3px;}
+
+.eye{display:inline-flex;align-items:center;gap:10px;font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--pk);margin-bottom:12px;}
+.eye::before{content:'';display:block;width:18px;height:2.5px;background:var(--pk);border-radius:2px;}
+.sh2{font-family:var(--df);font-size:clamp(1.8rem,3.8vw,2.9rem);font-weight:800;line-height:1.1;color:var(--ink);letter-spacing:-.025em;margin-bottom:12px;}
+.ssub{font-size:.97rem;color:var(--inkl);line-height:1.7;max-width:520px;}
+
+#how{padding:90px clamp(16px,5%,80px);background:var(--ink);position:relative;overflow:hidden;}
+#how::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(247,37,133,.08) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(0,180,216,.06) 0%,transparent 40%);}
+#how .sh2{color:#fff}#how .ssub{color:rgba(255,255,255,.45)}
+.stp-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;margin-top:52px;}
+.stp{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:26px 20px;position:relative;overflow:hidden;transition:all .3s;}
+.stp:hover{background:rgba(247,37,133,.08);border-color:rgba(247,37,133,.25);transform:translateY(-5px);}
+.snum{font-family:var(--df);font-size:4rem;font-weight:800;color:rgba(255,255,255,.05);line-height:1;position:absolute;top:10px;right:14px;}
+.semi{font-size:2rem;display:block;margin-bottom:14px;}
+.stitle{font-family:var(--df);font-size:.95rem;font-weight:700;color:#fff;margin-bottom:6px;}
+.sdesc{font-size:.8rem;color:rgba(255,255,255,.42);line-height:1.6;}
+.poin{position:relative;z-index:1;margin-top:32px;background:linear-gradient(135deg,rgba(247,37,133,.14) 0%,rgba(0,180,216,.09) 100%);border:1.5px solid rgba(247,37,133,.2);border-radius:18px;padding:22px 28px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.poin-ico{font-size:2.5rem;}
+.poin strong{font-family:var(--df);font-size:1.05rem;color:#fff;display:block;}
+.poin span{font-size:.84rem;color:rgba(255,255,255,.48);}
+
+#packages{padding:90px clamp(16px,5%,80px);background:var(--cr);}
+.frow{display:flex;gap:8px;flex-wrap:wrap;margin-top:36px;margin-bottom:44px;}
+.fp{padding:8px 20px;border-radius:50px;border:1.5px solid var(--sand2);background:#fff;color:var(--inkl);font-size:.8rem;font-weight:600;cursor:pointer;transition:all .2s;}
+.fp:hover{border-color:var(--pk);color:var(--pk);background:var(--pkp);}
+.fp.on{background:var(--pk);border-color:var(--pk);color:#fff;box-shadow:0 4px 16px rgba(247,37,133,.3);}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:24px;}
+
+.pkc{background:#fff;border-radius:24px;overflow:hidden;border:1.5px solid rgba(0,0,0,.05);cursor:pointer;transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s ease;position:relative;}
+.pkc:hover{transform:translateY(-10px) rotate(-.35deg);box-shadow:var(--s3);border-color:transparent;}
+.pkc:hover .crev{opacity:1;transform:translateY(0);}
+.cph{position:relative;height:220px;overflow:hidden;background:var(--sand);}
+.cph img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .5s ease;}
+.pkc:hover .cph img{transform:scale(1.06);}
+.cph-fb{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:3.5rem;}
+.ctags{position:absolute;top:12px;left:12px;display:flex;gap:7px;z-index:2;}
+.ctag{background:rgba(0,0,0,.45);backdrop-filter:blur(10px);color:#fff;font-size:.63rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;}
+.cnew{background:var(--pk);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:20px;}
+.cnum{position:absolute;top:12px;right:12px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-family:var(--df);font-size:.78rem;font-weight:800;color:var(--ink);z-index:2;}
+.cemi{position:absolute;bottom:-16px;right:16px;width:36px;height:36px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 4px 14px rgba(0,0,0,.12);z-index:3;border:2px solid #fff;}
+.cbody{padding:26px 20px 16px;}
+.cname{font-family:var(--df);font-size:1.35rem;font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-bottom:2px;}
+.cmotto{font-size:.95rem;font-family:var(--df);font-weight:600;color:var(--ink);font-style:italic;margin-bottom:7px;letter-spacing:-.01em;line-height:1.3;}
+.cline{font-size:.72rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:9px;}
+.cchips{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:9px;}
+.chip{background:var(--sand);color:var(--inkl);font-size:.67rem;font-weight:600;padding:3px 9px;border-radius:20px;}
+.cdesc{font-size:.9rem;color:var(--inkl);line-height:1.65;margin-bottom:14px;}
+.cfoot{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1.5px solid var(--sand);}
+.cprice{font-family:var(--df);font-size:.95rem;font-weight:800;color:var(--ink);}
+.cdur{font-size:.76rem;color:var(--inkl);margin-top:2px;}
+.crev{background:var(--pk);color:#fff;border:none;border-radius:50px;padding:7px 15px;font-size:.75rem;font-weight:700;opacity:0;transform:translateY(6px);transition:all .25s;}
+
+#usp{padding:90px clamp(16px,5%,80px);background:var(--cr2);position:relative;overflow:hidden;}
+#usp::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--pk),#7C3AED,#00B4D8,var(--pk));}
+.ugrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;margin-top:48px;}
+.uc{background:#fff;border-radius:18px;padding:26px 22px;border:1.5px solid transparent;box-shadow:0 2px 14px rgba(0,0,0,.04);transition:all .3s;position:relative;overflow:hidden;}
+.uc::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--pk);opacity:0;transition:opacity .3s;}
+.uc:hover{border-color:rgba(247,37,133,.15);transform:translateY(-4px);box-shadow:var(--s2);}
+.uc:hover::before{opacity:1;}
+.uico{font-size:2rem;margin-bottom:14px;display:block;}
+.utitle{font-family:var(--df);font-size:.97rem;font-weight:700;color:var(--ink);margin-bottom:7px;}
+.ubody{font-size:.82rem;color:var(--inkl);line-height:1.65;}
+
+#newlaunch{padding:70px clamp(16px,5%,80px);background:var(--ink);text-align:center;}
+#newlaunch .sh2{color:#fff;margin-bottom:8px;}
+#newlaunch .ssub{color:rgba(255,255,255,.45);margin:0 auto 36px;}
+.nl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;max-width:960px;margin:0 auto;}
+.nl-card{background:rgba(255,255,255,.05);border:1.5px solid rgba(247,37,133,.2);border-radius:18px;padding:22px 20px;text-align:left;transition:all .3s;}
+.nl-card:hover{background:rgba(247,37,133,.08);transform:translateY(-4px);}
+.nl-card .nl-emoji{font-size:2rem;margin-bottom:10px;display:block;}
+.nl-card .nl-name{font-family:var(--df);font-size:1.05rem;font-weight:800;color:var(--pk2);margin-bottom:4px;}
+.nl-card .nl-line{font-size:.75rem;color:rgba(255,255,255,.5);margin-bottom:8px;}
+.nl-card .nl-desc{font-size:.8rem;color:rgba(255,255,255,.42);line-height:1.55;}
+
+#disclaimer{padding:90px clamp(16px,5%,80px);background:#fff;}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;margin-top:40px;}
+.di{display:flex;gap:14px;align-items:flex-start;padding:16px 18px;border-radius:12px;background:var(--cr);border:1.5px solid var(--sand2);transition:border-color .2s;}
+.di:hover{border-color:var(--pk);}
+.dn{width:30px;height:30px;border-radius:10px;background:var(--pk);color:#fff;font-family:var(--df);font-size:.78rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.dt{font-size:.85rem;color:var(--ink);line-height:1.58;}
+
+#cta{padding:90px clamp(16px,5%,80px);background:var(--ink);text-align:center;position:relative;overflow:hidden;}
+#cta::before{content:'';position:absolute;width:650px;height:450px;left:50%;top:50%;transform:translate(-50%,-50%);background:radial-gradient(ellipse,rgba(247,37,133,.18) 0%,transparent 65%);pointer-events:none;}
+.ckick{display:inline-block;background:rgba(247,37,133,.15);color:var(--pk2);font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:7px 18px;border-radius:50px;margin-bottom:22px;position:relative;z-index:1;}
+#cta h2{font-family:var(--df);font-size:clamp(2rem,4.8vw,3.6rem);font-weight:800;color:#fff;line-height:1.06;letter-spacing:-.03em;margin-bottom:14px;position:relative;z-index:1;}
+#cta h2 span{color:var(--pk);font-style:italic;}
+#cta p{color:rgba(255,255,255,.48);font-size:.97rem;margin-bottom:36px;position:relative;z-index:1;}
+.cbtns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;position:relative;z-index:1;}
+.bwh{display:inline-flex;align-items:center;gap:8px;padding:15px 32px;border-radius:50px;border:2px solid rgba(255,255,255,.2);color:#fff;font-size:.92rem;font-weight:600;cursor:pointer;transition:all .25s;background:transparent;}
+.bwh:hover{border-color:var(--pk2);color:var(--pk2);}
+.cc{margin-top:28px;position:relative;z-index:1;font-size:.82rem;color:rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;}
+.cc a{color:rgba(255,255,255,.52);transition:color .2s;}.cc a:hover{color:var(--pk2);}
+
+footer{background:#0e0b1a;padding:32px clamp(16px,5%,80px);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;border-top:1.5px solid rgba(255,255,255,.06);}
+.flogo{font-family:var(--df);font-size:1.45rem;font-weight:800;color:#fff;}
+.flogo span{color:var(--pk);}
+.fcopy{font-size:.76rem;color:rgba(255,255,255,.2);}
+.flinks{display:flex;gap:20px;}
+.flinks a{font-size:.76rem;color:rgba(255,255,255,.28);transition:color .2s;}
+.flinks a:hover{color:var(--pk2);}
+
+.ov{position:fixed;inset:0;z-index:500;background:rgba(16,10,26,.82);backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:center;padding:16px;opacity:0;visibility:hidden;transition:all .3s;}
+.ov.open{opacity:1;visibility:visible;}
+.modal{background:#fff;border-radius:26px;max-width:700px;width:100%;max-height:92vh;overflow-y:auto;transform:scale(.9) translateY(22px);transition:all .38s cubic-bezier(.34,1.56,.64,1);position:relative;}
+.ov.open .modal{transform:scale(1) translateY(0);}
+.mph{overflow:hidden;border-radius:26px 26px 0 0;position:relative;background:var(--sand);min-height:200px;}
+.mph img{width:100%;height:auto;display:block;object-fit:contain;}
+.mpho{position:absolute;left:0;right:0;bottom:0;height:120px;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,transparent 100%);pointer-events:none;}
+.mphi{position:absolute;bottom:18px;left:24px;color:#fff;z-index:2;}
+.mphi .mt{font-size:.66rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;opacity:.7;margin-bottom:4px;}
+.mphi .mn{font-family:var(--df);font-size:1.9rem;font-weight:800;line-height:1;letter-spacing:-.03em;}
+.mphi .mm{font-size:.95rem;color:rgba(255,255,255,.82);margin-top:6px;font-style:italic;font-weight:500;}
+.mcl{position:absolute;top:14px;right:14px;width:36px;height:36px;border-radius:50%;background:rgba(0,0,0,.35);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:10;}
+.mcl:hover{background:var(--pk);border-color:var(--pk);}
+.mbody{padding:28px 30px 30px;}
+.mtagl{font-size:.76rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;}
+.mdesc{font-size:1rem;color:var(--ink);line-height:1.72;margin-bottom:22px;}
+.mst{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--inkl);margin-bottom:12px;margin-top:22px;}
+.mfeats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px;}
+.mfeat{display:flex;gap:9px;align-items:flex-start;font-size:.9rem;color:var(--ink);line-height:1.5;}
+.mfeat::before{content:'✓';color:var(--pk);font-weight:800;flex-shrink:0;font-size:.76rem;margin-top:2px;}
+.mtbl{border-radius:12px;overflow:hidden;border:1.5px solid var(--sand2);}
+.mrow{display:flex;justify-content:space-between;align-items:center;padding:13px 18px;font-size:.9rem;}
+.mrow:not(:last-child){border-bottom:1.5px solid var(--sand2);}
+.mrow:nth-child(even){background:var(--cr);}
+.mrd{color:var(--ink);font-weight:500;}
+.mrp{font-family:var(--df);font-weight:800;}
+.mnote{font-size:.71rem;color:#aaa;margin-top:-12px;margin-bottom:18px;}
+.mres{background:var(--pkp);border:1.5px solid rgba(247,37,133,.15);border-radius:12px;padding:16px 18px;}
+.mri{display:flex;gap:8px;align-items:flex-start;font-size:.86rem;color:#7a3858;line-height:1.55;margin-bottom:8px;}
+.mri:last-child{margin-bottom:0;}
+.mri::before{content:'⚠';font-size:.7rem;flex-shrink:0;margin-top:1px;}
+.macts{display:flex;gap:12px;margin-top:22px;}
+.mbk{flex:1;padding:14px;color:#fff;border:none;border-radius:50px;font-family:var(--db);font-size:.92rem;font-weight:700;cursor:pointer;transition:all .2s;}
+.mbk:hover{filter:brightness(1.1);}
+.mclo{flex:1;padding:14px;background:var(--sand);color:var(--ink);border:none;border-radius:50px;font-family:var(--db);font-size:.92rem;font-weight:600;cursor:pointer;transition:background .2s;}
+.mclo:hover{background:var(--sand2);}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .52s ease,transform .52s ease;}
+.rv.vis{opacity:1;transform:translateY(0);}
+
+@media(max-width:960px){
+  #hero{grid-template-columns:1fr;}
+  .hright{display:none;}
+  .stp-grid{grid-template-columns:repeat(2,1fr);}
+  nav .nlinks{display:none;}
+  .mfeats{grid-template-columns:1fr;}
+}
+@media(max-width:580px){.stp-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nlogo"><div class="dot"></div>temen<span>.in</span></div>
+  <ul class="nlinks">
+    <li><a href="#how">Cara Kerja</a></li>
+    <li><a href="#packages">Layanan</a></li>
+    <li><a href="#usp">Kenapa Kami</a></li>
+    <li><a href="#disclaimer">Ketentuan</a></li>
+  </ul>
+  <button class="nbtn" onclick="go('#packages')">Pilih Layanan ↓</button>
+</nav>
+
+<section id="hero">
+  <div class="bl bl1"></div><div class="bl bl2"></div><div class="bl bl3"></div>
+  <div class="hleft">
+    <div class="hpill">Professional Companion Service</div>
+    <h1 class="ht">Solusi Teman<br>Terbaik untuk<br><span class="acc">Setiap Momenmu</span></h1>
+    <p class="hsub">26 layanan companion profesional — aman, sopan, terpercaya. Namanya mungkin bikin tanda tanya. Isinya bikin takjub.</p>
+    <div class="hbtns">
+      <button class="bpk" onclick="go('#packages')">Lihat Semua Layanan →</button>
+      <button class="bgh" onclick="go('#how')">Cara Kerja</button>
+    </div>
+    <div class="trust">
+      <div class="ti"><div class="tic">🏅</div>Talent Terverifikasi</div>
+      <div class="ti"><div class="tic">⚖️</div>Legal & Terpercaya</div>
+      <div class="ti"><div class="tic">🔒</div>Privasi Terjaga</div>
+    </div>
+  </div>
+  <div class="hright">
+    <div class="mosaic">
+      <div class="mc mc1"><img src="https://lh3.googleusercontent.com/d/1wz7rtjQc8aZJBFZKMzO-CJkcghd0lA5S" alt="bobo.in" loading="eager"/></div>
+      <div class="mc mc2"><img src="https://lh3.googleusercontent.com/d/1mtkXprK_8WH-Jw8G7YoxN0lO-zE_n9Va" alt="lengket.in" loading="eager"/></div>
+      <div class="mc mc3"><img src="https://lh3.googleusercontent.com/d/1uAs_xHYGahDZpN7nNzSwHZu77R2wAPJM" alt="kunyah.in" loading="eager"/></div>
+      <div class="mc mc4"><img src="https://lh3.googleusercontent.com/d/1CWafdi-2ElvhHOXfs4QJQJzVPnE8zNMC" alt="brutal.in" loading="eager"/></div>
+      <div class="mbadge mbt"><div class="bico" style="background:#FFE4F0">🌙</div><div><strong>bobo.in aktif</strong><span>Teman virtual siap menemani</span></div></div>
+      <div class="mbadge mbb"><div class="bico" style="background:#E0F7F1">⭐</div><div><strong>26 Paket Tersedia</strong><span>Legal & profesional</span></div></div>
+      <div class="stats">
+        <div><div class="sn">26<em>+</em></div><div class="sl">Layanan</div></div>
+        <div><div class="sn">100<em>%</em></div><div class="sl">Legal</div></div>
+        <div><div class="sn">OJP<em>™</em></div><div class="sl">Otoritas Jasa Perasaan</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="eye" style="color:rgba(255,255,255,.4)"><span style="width:18px;height:2.5px;background:rgba(255,255,255,.28);display:inline-block;border-radius:2px"></span>Cara Kerja</div>
+  <h2 class="sh2">Mudah, Aman, dan Transparan</h2>
+  <p class="ssub">Lima langkah dari pilih sampai nikmati — tanpa ribet, tanpa awkward.</p>
+  <div class="stp-grid">
+    <div class="stp rv"><span class="snum">01</span><span class="semi">🛒</span><div class="stitle">Pilih Layanan</div><div class="sdesc">Browse 26 paket sesuai kebutuhan & mood hari ini.</div></div>
+    <div class="stp rv" style="transition-delay:.08s"><span class="snum">02</span><span class="semi">⭐</span><div class="stitle">Pilih Talent</div><div class="sdesc">Lihat profil, rating & keahlian. Semua terverifikasi ketat.</div></div>
+    <div class="stp rv" style="transition-delay:.16s"><span class="snum">03</span><span class="semi">⏱️</span><div class="stitle">Tentukan Durasi</div><div class="sdesc">Fleksibel 30 menit sampai full day — sesuai budget.</div></div>
+    <div class="stp rv" style="transition-delay:.24s"><span class="snum">04</span><span class="semi">💳</span><div class="stitle">Payment</div><div class="sdesc">Transfer / e-wallet. Invoice resmi dikirim digital menyusul.</div></div>
+    <div class="stp rv" style="transition-delay:.32s"><span class="snum">05</span><span class="semi">🎉</span><div class="stitle">Nikmati Sesi</div><div class="sdesc">Santai, hadir, memuaskan. Dapat poin reward tiap transaksi.</div></div>
+  </div>
+  <div class="poin rv"><div class="poin-ico">🎁</div><div><strong>Promo Poin — Reward Setiap Sesi</strong><span>Kumpulkan poin dari setiap transaksi → tukar dengan diskon, sesi gratis, atau upgrade talent. Makin sering, makin hemat.</span></div></div>
+</section>
+
+<section id="packages">
+  <div class="eye">Katalog Layanan</div>
+  <h2 class="sh2">26 Paket untuk Setiap Kebutuhan</h2>
+  <p class="ssub">Ada yang namanya bikin tanda tanya. Isinya bikin takjub.</p>
+  <div class="frow" id="frow"></div>
+  <div class="pgrid" id="pgrid"></div>
+</section>
+
+<section id="newlaunch">
+  <div class="eye" style="color:rgba(255,255,255,.4);justify-content:center"><span style="width:18px;height:2.5px;background:rgba(255,255,255,.28);display:inline-block;border-radius:2px"></span>Paket Baru</div>
+  <h2 class="sh2" style="color:#fff;text-align:center">Launching Terbaru 🆕</h2>
+  <p class="ssub" style="color:rgba(255,255,255,.45);text-align:center;margin:0 auto 40px">Tiga paket baru yang namanya bikin penasaran, isinya bikin ketagihan</p>
+  <div class="nl-grid">
+    <div class="nl-card rv"><span class="nl-emoji">🤣</span><div class="nl-name">keluar.in</div><div class="nl-line">Jokes Companion</div><div class="nl-desc">"ngakak sampai keluar air mata" — dari bapak-bapak jokes sampai dark comedy, semua ada.</div></div>
+    <div class="nl-card rv" style="transition-delay:.1s"><span class="nl-emoji">🏛️</span><div class="nl-name">keramas.in</div><div class="nl-line">Temen Insight Politik</div><div class="nl-desc">"bukan cuma cuci rambut, bisa cuci otak sampe berkelas" — diskusi politik yang cerdas & berimbang.</div></div>
+    <div class="nl-card rv" style="transition-delay:.2s"><span class="nl-emoji">🥗</span><div class="nl-name">seger.in</div><div class="nl-line">Healthy Companion</div><div class="nl-desc">"bukan cuma ngobatin, tapi ngasih kesegaran prima" — wellness companion untuk hidup yang lebih segar.</div></div>
+  </div>
+</section>
+
+<section id="usp">
+  <div class="eye">Kenapa Kami</div>
+  <h2 class="sh2">Bukan Sekadar Teman Bayaran</h2>
+  <div class="ugrid">
+    <div class="uc rv"><span class="uico">🏅</span><div class="utitle">Talent Terverifikasi</div><div class="ubody">Seleksi ketat, pelatihan komunikasi empatik, dan verifikasi identitas untuk setiap talent kami.</div></div>
+    <div class="uc rv" style="transition-delay:.08s"><span class="uico">⚖️</span><div class="utitle">Legal & Transparan</div><div class="ubody">Invoice resmi tersedia. Operasi 100% legal dan diawasi OJP — Otoritas Jasa Perasaan™.</div></div>
+    <div class="uc rv" style="transition-delay:.16s"><span class="uico">🔒</span><div class="utitle">Privasi Terjaga</div><div class="ubody">Data klien dan talent dilindungi penuh. Kami tidak menjual data — kami menjual jasa perasaan.</div></div>
+    <div class="uc rv" style="transition-delay:.24s"><span class="uico">📋</span><div class="utitle">Invoice Resmi</div><div class="ubody">"Invoice resmi dikirim digital menyusul, dibarengi perasaan yang timbul." — Seriusan.</div></div>
+    <div class="uc rv" style="transition-delay:.32s"><span class="uico">🏆</span><div class="utitle">Bersertifikat ISO</div><div class="ubody">ISO: Ikatan Sosial Organik. Tenaga profesional berpengalaman di bidang menemani sejak dini.</div></div>
+    <div class="uc rv" style="transition-delay:.4s"><span class="uico">💰</span><div class="utitle">Harga Transparan</div><div class="ubody">"Harga belum termasuk PPN dan PPh, tapi sudah termasuk perhatian penuh." Tidak ada biaya tersembunyi.</div></div>
+  </div>
+</section>
+
+<section id="disclaimer">
+  <div class="eye">Batasan & Ketentuan</div>
+  <h2 class="sh2">Kami Jujur dari Awal</h2>
+  <p class="ssub">Karena kepercayaan lebih berharga dari repeat order — meski repeat order juga kami terima dengan senang hati.</p>
+  <div class="dgrid">
+    <div class="di rv"><div class="dn">01</div><div class="dt">Semua layanan bersifat <strong>profesional dan legal</strong>. Apapun yang tersirat di luar kontrak bukan produk kami.</div></div>
+    <div class="di rv" style="transition-delay:.05s"><div class="dn">02</div><div class="dt">Nama layanan yang terdengar mencurigakan adalah <strong>sengaja</strong> — untuk menghibur, bukan mengundang interpretasi lain.</div></div>
+    <div class="di rv" style="transition-delay:.1s"><div class="dn">03</div><div class="dt">"Kode-kodean" di luar kontrak <strong>tidak dijamin dapat dipahami</strong> — bahkan oleh talent kami sendiri.</div></div>
+    <div class="di rv" style="transition-delay:.15s"><div class="dn">04</div><div class="dt">Reschedule boleh <strong>tanpa biaya</strong>. Move on silakan diusahakan sendiri — kami tidak menyediakan layanan tersebut.</div></div>
+    <div class="di rv" style="transition-delay:.2s"><div class="dn">05</div><div class="dt">Segala bentuk rasa nyaman adalah <strong>efek samping yang tidak dapat dihindari</strong> — bukan janji tertulis dalam kontrak.</div></div>
+    <div class="di rv" style="transition-delay:.25s"><div class="dn">06</div><div class="dt">Jika durasi habis dan rasa nyaman tetap ada, <strong>kami menerima repeat order</strong>. Tidak akan ghosting — kami profesional.</div></div>
+    <div class="di rv" style="transition-delay:.3s"><div class="dn">07</div><div class="dt">Talent berhak <strong>menolak atau menghentikan sesi</strong> jika klien berperilaku di luar norma. Deposit hangus, tidak bisa negosiasi.</div></div>
+    <div class="di rv" style="transition-delay:.35s"><div class="dn">08</div><div class="dt">Paket baru (keluar.in, keramas.in, seger.in): masa <strong>early access berlaku</strong> — harga & fitur dapat berubah sewaktu-waktu.</div></div>
+    <div class="di rv" style="transition-delay:.4s"><div class="dn">09</div><div class="dt">Seluruh sesi diawasi standar OJP. Pelanggaran dilaporkan ke <strong>Divisi Perasaan Tersakiti</strong> kami yang tidak pernah libur.</div></div>
+    <div class="di rv" style="transition-delay:.45s"><div class="dn">10</div><div class="dt">Ketentuan lengkap tersedia di <strong>temen.in/tos</strong>. Baca sebelum booking — atau setidaknya pura-pura sudah membaca.</div></div>
+  </div>
+</section>
+
+<section id="cta">
+  <div class="ckick">Butuh Teman? Kami Siap</div>
+  <h2>Kapan Pun <span>Kamu Butuh.</span></h2>
+  <p>"Diawasi ketat oleh OJP — Otoritas Jasa Perasaan™"</p>
+  <div class="cbtns">
+    <button class="bpk" onclick="go('#packages')">🎯 Pilih Layanan Sekarang</button>
+    <a href="https://wa.me/6281234567890" class="bwh">💬 WhatsApp Kami</a>
+  </div>
+  <div class="cc">
+    <span>📱 0812-3456-7890</span><span>·</span>
+    <a href="#">📷 @temen.in</a><span>·</span>
+    <span>#BukanTemanBiasa</span>
+  </div>
+</section>
+
+<footer>
+  <div class="flogo">temen<span>.in</span></div>
+  <div class="fcopy">© 2025 temen.in · Teman Sewaan, Rasa Tidak Murahan</div>
+  <div class="flinks"><a href="#">Tentang Kami</a><a href="#">Daftar Talent</a><a href="#">Syarat & Ketentuan</a></div>
+</footer>
+
+<div class="ov" id="ov" onclick="closeMod(event)">
+  <div class="modal" id="modal">
+    <div class="mph" id="mph">
+      <div class="mpho"></div>
+      <div class="mphi" id="mphi"></div>
+      <button class="mcl" onclick="closeMod()">✕</button>
+    </div>
+    <div class="mbody" id="mbody"></div>
+  </div>
+</div>
+
+<script>
+const IMGS={basah:'1Cypap-pJqyIvzFK9heQjvNwJpihna9b6',bobo:'1wz7rtjQc8aZJBFZKMzO-CJkcghd0lA5S',brutal:'1CWafdi-2ElvhHOXfs4QJQJzVPnE8zNMC',enak:'1oY_wnCgV2x8I79kIdPItUQGfM1G9igFk',gendong:'1rw7V9-lmbZqIzJ5xDxdGkDMHGsWoiRAf',gerayang:'19tiTO71uAE1d96Ah8XTUTFlvUmmPBp_H',hajar:'1PvnNxppcTJKpm8OHMkqcj80zQXZ_9Wul',halal:'1xaY_HRe_SMa551Ay3r33Yx0La5kFajYY',intip:'1tNzVn9HQgsxfJXzMrjT4LSg9V2Qf0dCv',jilat:'1Weva56VEkFh7WpJs-K_PdJhuurqvqnDE',kangen:'14tkwEgYIFnYh1rNrWSw4CBT9AIBpQznw',keluar:'12r-fEyZHqYgUK1X6pRlRbuiA8CHK9qm4',keramas:'1GKBpxjqtO5rLOam0BPxQU08cwRmo7Gbh',kunyah:'1uAs_xHYGahDZpN7nNzSwHZu77R2wAPJM',lengket:'1mtkXprK_8WH-Jw8G7YoxN0lO-zE_n9Va',main:'1g5MFMLArnqyWVc4I2RtQaciBKEcCgigV',mandi:'1sMqbddOF9rkbBgara7OhTHz7xFek8gBg',manja:'1N25S9qZLNy0U-MVUzyMD_bTjTmnxiWX7',naik:'1E4y4Pi7BYwwa_Ok00MgDTXTNKsZg7w9L',nyangkut:'1DwT-tFYgE_pgfygCkbZSQC0pcLPwIEla',nyicip:'1gXfiX4s1ceiCoq6BebbT3sSkQiMIGN4F',pamer:'1BSdtWRw0fmEKzcCgNWceYDQM14ouvjPv',sedot:'1TAtnDD0E7tIdTtfn654_RMGYyvkAUjvj',seger:'1DFUQc9H39Nc-dWZ9p3gaPjDFvJX_0SDr',taudiri:'1c6hASuVjFmq1fshvVvKEgDibTSnhyv9g',tenang:'1fsoTqq5UIlxEojNG_m_Izd4QDngYtQQ3'};
+const gi=k=>`https://lh3.googleusercontent.com/d/${IMGS[k]}`;
+
+const PKGS=[
+{id:'bobo',num:1,name:'bobo.in',tag:'SLEEP',emoji:'🌙',motto:'bukan mepende biasa',tagline:'Sleep Companion (Virtual)',cat:['virtual'],color:'#4338CA',isNew:false,desc:'Teman virtual menemani kamu sampai terlelap. Untuk yang sulit tidur, butuh suara teman, atau sekadar tidak mau sendirian malam hari.',chips:['Virtual','Malam','Relaksasi'],features:['Sesi via voice/video call — suaranya nyata, orangnya juga','Cerita pengantar tidur custom (bisa request tema apapun)','Guided breathing & relaksasi yang serius tapi tidak lebay','Playlist tidur pilihan talent (bukan lagu galau autoplay)','Afirmasi positif sebelum tidur — bukan seminar motivasi','Laporan mood singkat post-sesi (opsional)'],pricing:[{d:'30 menit',p:'Rp 49.000'},{d:'60 menit',p:'Rp 89.000'},{d:'90 menit',p:'Rp 129.000'}],restrict:['Tidak mengandung unsur seksual/vulgar sama sekali','Tidak menggantikan hubungan personal nyata','Interaksi hanya dalam durasi layanan yang disepakati','Rasa nyaman adalah efek samping — bukan jaminan tertulis'],pr:'Rp 49.000–129.000',dr:'30–90 menit'},
+{id:'taudiri',num:2,name:'tau-diri.in',tag:'GROWTH',emoji:'🧠',motto:'biar gak disuruh ngaca',tagline:'Motivation & Style Companion',cat:['virtual','professional'],color:'#7C3AED',isNew:false,desc:'Pendamping untuk tumbuh tanpa harus disuruh ngaca. Dari motivasi diri, konsultasi gaya berpakaian, sampai saran karir ringan — jujur tapi tidak nyakitin.',chips:['Karir','Style','Motivasi'],features:['Sesi motivasi & goal setting yang tidak pakai whiteboard','Konsultasi style & penampilan (outfit check yang jujur)','Feedback konstruktif — honest, bukan brutal','Journaling terpandu biar hidup lebih terarah','Rekomendasi buku & konten pengembangan diri terkini','Follow-up progress mini antar sesi (opsional)'],pricing:[{d:'60 menit',p:'Rp 99.000'},{d:'2 jam',p:'Rp 179.000'},{d:'Paket 3 sesi',p:'Rp 449.000'}],restrict:['Bukan psikolog atau konselor berlisensi','Saran adalah perspektif profesional, bukan hukum alam','Tidak untuk diagnosis kesehatan mental apapun','Keputusan final 100% ada di tangan klien'],pr:'Rp 99.000–449.000',dr:'60 mnt–3 sesi'},
+{id:'lengket',num:3,name:'lengket.in',tag:'COMBO',emoji:'🔗',motto:'lengket sana sini',tagline:'Combo Double Companion',cat:['tatap-muka','lifestyle'],color:'#E8457A',isNew:false,desc:'Dua talent sekaligus untuk menemanimu. Untuk acara, hangout grup, atau kamu yang memang lebih suka rame dan tidak mau awkward sendirian.',chips:['Duo','Event','Sosial'],features:['2 talent aktif dalam 1 sesi yang sudah sehati','Koordinasi antar talent pre-sesi biar tidak chaos','Pilih duo kompatibel: mix gender, vibe, atau skill','Cocok untuk event sosial yang butuh "aura keramaian"','Group dynamic yang fun tanpa awkward silence','Fleksibel: virtual, tatap muka, atau hybrid'],pricing:[{d:'60 menit',p:'Rp 149.000'},{d:'120 menit',p:'Rp 279.000'},{d:'Half Day (4 jam)',p:'Rp 499.000'}],restrict:['Tidak untuk aktivitas yang melanggar hukum apapun','Koordinasi lokasi dan jadwal disepakati di awal','Maksimal 2 talent dalam 1 paket ini','Privasi semua pihak terjaga sepenuhnya'],pr:'Rp 149.000–499.000',dr:'60 mnt–4 jam'},
+{id:'halal',num:4,name:'halal.in',tag:'HALAL',emoji:'💍',motto:'bukan acara take me out',tagline:"Ta'aruf Companion",cat:['tatap-muka','professional'],color:'#059669',isNew:false,desc:"Pendamping profesional untuk proses ta'aruf yang nyaman, bermartabat, dan sesuai nilai. Bukan take me out, bukan blind date — ini serius tapi tetap santuy.",chips:['Islami','Pernikahan','Mediasi'],features:["Pendamping ta'aruf terlatih adab dan etika Islam","Panduan pertanyaan ta'aruf yang berkualitas (bukan awkward)","Mediasi komunikasi antar pihak secara netral",'Konsultasi kesiapan menikah yang tidak menghakimi','Dokumentasi proses pertemuan (opsional)','Referral ke ustadz/konsultan pernikahan terpercaya'],pricing:[{d:'Konsultasi awal (60 mnt)',p:'Rp 99.000'},{d:"Sesi ta'aruf (2 jam)",p:'Rp 199.000'},{d:'Paket 3 sesi',p:'Rp 499.000'}],restrict:["Bukan jasa perjodohan — kami mediator, bukan Cupid","Talent bukan calon pasangan — sama sekali",'Proses wajib sesuai nilai & adab Islam','Tidak ada jaminan hasil pernikahan — jodoh bukan layanan kami'],pr:'Rp 99.000–499.000',dr:'60 mnt–3 sesi'},
+{id:'kunyah',num:5,name:'kunyah.in',tag:'FOOD',emoji:'☕',motto:'perut kenyang, hati senang',tagline:'Eat & Coffee Companion',cat:['tatap-muka','lifestyle'],color:'#D97706',isNew:false,desc:'Teman makan siang atau ngopi sore yang tidak bikin kamu makan sambil main HP sendirian. Makanan enak jauh lebih nikmat kalau ada yang diajak ngobrol.',chips:['Kuliner','Ngobrol','Foto'],features:['Teman makan/ngopi tatap muka yang nyambung diajak ngobrol','Rekomendasi menu & tempat makan dari yang tahu (bukan influencer)','Ngobrol santai tanpa topik yang dipaksain','Review kuliner bareng — bisa jadi konten (opsional)','Request tema obrolan: karir, film, gosip, atau absurd','Foto momen makan yang aesthetik tanpa drama'],pricing:[{d:'60 menit (ngopi)',p:'Rp 79.000'},{d:'90 menit (makan siang)',p:'Rp 119.000'},{d:'2 jam (fine dining)',p:'Rp 189.000'}],restrict:['Biaya makanan & minuman tidak termasuk harga layanan','Lokasi disepakati di awal — tidak bisa mendadak ganti','Tidak untuk aktivitas di luar makan/ngopi selama sesi','Privasi tetap terjaga meski di tempat publik'],pr:'Rp 79.000–189.000',dr:'60–120 menit'},
+{id:'pamer',num:6,name:'pamer.in',tag:'PHOTO',emoji:'📸',motto:'expert sejak jaman majalah bobo',tagline:'Photo & Event Presence Companion',cat:['tatap-muka','lifestyle'],color:'#DB2777',isNew:false,desc:'Partner acara dan teman foto aesthetik. Untuk kamu yang ingin terlihat ditemani di momen penting — expert sejak jaman majalah Bobo, relevan sampai era Reels.',chips:['Event','Foto','Konten'],features:['Kehadiran di event sosial yang bikin kamu tidak kesepian','Partner foto natural & profesional (angle tahu, momen tahu)','Editing foto dasar sudah termasuk dalam paket','Koordinasi outfit style biar matching (opsional)','Dokumentasi candid & posed sesuai kebutuhan','Interaksi natural di depan umum — tidak kaku, tidak lebay'],pricing:[{d:'2 jam (foto session)',p:'Rp 199.000'},{d:'Half Day event',p:'Rp 349.000'},{d:'Full Day event',p:'Rp 599.000'}],restrict:['Bukan fotografer profesional berlisensi (tapi skillnya ada)','Konten untuk publikasi butuh persetujuan talent','Tidak untuk aktivitas menipu atau manipulasi publik','Detail event wajib dikomunikasikan minimal 24 jam sebelumnya'],pr:'Rp 199.000–599.000',dr:'2 jam–Full Day'},
+{id:'nyangkut',num:7,name:'nyangkut.in',tag:'CHAT',emoji:'💬',motto:'sekali nyangkut, gak bisa lepas',tagline:'Active Chat Experience',cat:['virtual'],color:'#0EA5E9',isNew:false,desc:'Teman chat aktif yang responsif, engaging, dan tidak bikin kamu nunggu lama. Sekali nyangkut, dijamin susah lepas — tapi bisa stop kapanpun.',chips:['Chat','Responsif','Virtual'],features:['Chat aktif via platform pilihan kamu','Responsif dalam 3 menit selama sesi aktif — bukan ghosting','Topik bebas: curhat, diskusi, debat receh, atau random','Update referensi topik terkini — tidak ketinggalan berita','Emoji & sticker game on point, bukan pakai default bawaan','Mood tracker mini di akhir sesi biar kamu tahu perasaanmu'],pricing:[{d:'2 jam',p:'Rp 59.000'},{d:'4 jam',p:'Rp 99.000'},{d:'Full Day (8 jam)',p:'Rp 169.000'}],restrict:['Hanya aktif dalam jam sesi yang sudah disepakati','Konten chat tetap menjunjung norma dan etika','Screenshot percakapan dilarang disebarluaskan','Tidak untuk keperluan penipuan atau manipulasi sosial'],pr:'Rp 59.000–169.000',dr:'2–8 jam'},
+{id:'kangen',num:8,name:'kangen.in',tag:'TRAVEL',emoji:'🗺️',motto:'antar kota antar provinsi',tagline:'Travel & Memorable Companion',cat:['tatap-muka','adventure'],color:'#F97316',isNew:false,desc:'Teman perjalanan siap menemanimu dari antar kota sampai antar provinsi. Buat kenangan yang layak diceritain, jangan lagi berangkat sendirian.',chips:['Travel','Petualangan','Foto'],features:['Pendamping perjalanan lokal hingga antar kota/provinsi','Diskusi & rekomendasi destinasi yang tidak pasaran','Dokumentasi perjalanan (foto & video instagramable)','Flexible itinerary — bisa belok mendadak tanpa drama','Partner cerita & diskusi panjang selama di jalan','Emergency contact coordination untuk keamanan'],pricing:[{d:'Half Day (4 jam)',p:'Rp 249.000'},{d:'Full Day (8 jam)',p:'Rp 449.000'},{d:'Full Day + Malam',p:'Rp 649.000'}],restrict:['Tidak menggantikan sopir profesional — ini teman, bukan driver','Keamanan & itinerary disepakati di awal tanpa pengecualian','Wajib transparansi tujuan perjalanan sejak booking','Biaya transport & tiket masuk di luar harga layanan'],pr:'Rp 249.000–649.000',dr:'4 jam–Full Day+'},
+{id:'manja',num:9,name:'manja.in',tag:'SOFT',emoji:'🌸',motto:'manja boleh, ngemis perhatian jangan',tagline:'Soft Attention Experience',cat:['virtual'],color:'#EC4899',isNew:false,desc:'Untuk kamu yang butuh perhatian kecil yang berarti. Didengar, dipuji tulus, dan merasa spesial — manja boleh, tapi ngemis perhatian sudah tidak perlu.',chips:['Perhatian','Supportif','Hangat'],features:['Perhatian personal & attentive sepanjang sesi','Pesan penyemangat harian selama durasi aktif','Pujian tulus & apresiasi yang tidak terdengar PHP','Cerita ringan & menghibur buat mood booster','Reminder care: makan, minum, istirahat — yang peduli','Sesi venting tanpa judgement apapun'],pricing:[{d:'2 jam',p:'Rp 69.000'},{d:'Half Day (4 jam)',p:'Rp 119.000'},{d:'Full Day (8 jam)',p:'Rp 199.000'}],restrict:['Tidak mengandung unsur seksual atau vulgar apapun','Perhatian bersifat profesional, bukan romantis','Tidak untuk membangun ketergantungan emosional jangka panjang','Interaksi hanya dalam durasi sesi yang disepakati'],pr:'Rp 69.000–199.000',dr:'2–8 jam'},
+{id:'tenang',num:10,name:'tenang.in',tag:'CALM',emoji:'🌿',motto:'galau berantakan, kita rapihin pelan-pelan',tagline:'Companion untuk yang Galau',cat:['virtual','wellness'],color:'#059669',isNew:false,desc:'Untuk yang lagi berat hati, overthinking, atau butuh ruang aman bercerita. Galau boleh berantakan — kami bantu rapiin pelan-pelan tanpa ceramah.',chips:['Curhat','Galau','Supportif'],features:['Safe space curhat tanpa filter dan tanpa ceramah','Active listening non-judgmental — didengar tanpa dihakimi','Teknik grounding & breathing ringan yang terbukti manjur','Distraksi positif: cerita, trivia, atau game ringan','Afirmasi personal yang tulus dan tidak generik','Referral ke profesional jika kondisi membutuhkan'],pricing:[{d:'30 menit',p:'Rp 49.000'},{d:'60 menit',p:'Rp 89.000'},{d:'90 menit',p:'Rp 129.000'}],restrict:['Bukan psikolog atau terapis berlisensi','Tidak untuk kondisi darurat kesehatan jiwa','Tidak memberikan diagnosis apapun','Tujuan kami adalah support, bukan solusi final'],pr:'Rp 49.000–129.000',dr:'30–90 menit'},
+{id:'nyicip',num:11,name:'nyicip.in',tag:'HOME',emoji:'🍱',motto:'ngobrol sambil icip-icip boleh kali',tagline:'Homemade Experience Companion',cat:['tatap-muka','lifestyle'],color:'#92400E',isNew:false,desc:'Talent menemani sambil bawa masakan rumahan buatan sendiri. Makan bersama, ngobrol santai, dan merasakan kehangatan masakan homemade yang genuine.',chips:['Homemade','Hangat','Personal'],features:['Masakan homemade buatan talent — bukan beli di warung','Menu disepakati di awal sesi sesuai selera klien','Kehadiran tatap muka penuh selama makan bersama','Cerita & diskusi yang mengalir selama icip-icip','Resep masakan bisa dibagikan jika diminta (opsional)','Upgrade premium: masak bersama di dapur klien'],pricing:[{d:'1 porsi + 60 menit',p:'Rp 149.000'},{d:'2 porsi + 90 menit',p:'Rp 229.000'},{d:'Masak bareng + 2 jam',p:'Rp 329.000'}],restrict:['Alergi & pantangan WAJIB dikomunikasikan saat booking','Masakan sepenuhnya tanggung jawab talent','Tidak untuk katering massal atau komersial','Lokasi makan disepakati terlebih dahulu'],pr:'Rp 149.000–329.000',dr:'60 mnt–masak bareng'},
+{id:'brutal',num:12,name:'brutal.in',tag:'GYM',emoji:'💪',motto:'keringet kamu, motivasi kita',tagline:'Gym & Olahraga Companion',cat:['tatap-muka','wellness'],color:'#DC2626',isNew:false,desc:'Teman gym yang tidak kenal capek dan tidak terima alasan. Push kamu lebih keras tapi tetap supportif — keringat kamu adalah tanggung jawab kami.',chips:['Gym','Outdoor','Motivasi'],features:['Teman olahraga aktif: gym, outdoor, lari, atau HIIT','Program latihan sederhana bareng yang realistis','Motivasi real-time selama sesi — tidak akan biarkan nyerah','Dokumentasi progress latihan biar ada bukti perjuangan','Rekomendasi nutrisi dasar yang masuk akal','Request jenis olahraga spesifik sesuai goals kamu'],pricing:[{d:'60 menit',p:'Rp 99.000'},{d:'90 menit',p:'Rp 139.000'},{d:'2 jam (full workout)',p:'Rp 179.000'}],restrict:['Bukan personal trainer bersertifikat','Biaya masuk gym/venue tidak termasuk dalam harga','Kondisi kesehatan & cedera WAJIB dikomunikasikan sebelumnya','Tidak untuk program medis atau rehabilitasi fisik'],pr:'Rp 99.000–179.000',dr:'60–120 menit'},
+{id:'hajar',num:13,name:'hajar.in',tag:'GUARD',emoji:'🛡️',motto:'gak nyari ribut, tapi siap kalau perlu',tagline:'Bodyguard Companion',cat:['tatap-muka','professional'],color:'#1E3A5F',isNew:false,desc:'Pendamping keamanan profesional yang tidak gampang diajak selfie saat bertugas. Tidak nyari ribut — tapi kalau perlu, siap.',chips:['Keamanan','Escort','Profesional'],features:['Pendamping keamanan terlatih & berpengalaman','Asesmen risiko lokasi sebelum sesi dimulai','Modus undercover: tampil casual, tetap waspada','Escort aman ke/dari kendaraan atau venue','Koordinasi rute aman berdasarkan situasi','Laporan situasi real-time ke klien bila diperlukan'],pricing:[{d:'2 jam (event/acara)',p:'Rp 299.000'},{d:'Half Day (4 jam)',p:'Rp 499.000'},{d:'Full Day (8 jam)',p:'Rp 849.000'}],restrict:['Bukan anggota kepolisian atau TNI aktif','Tidak untuk aksi apapun yang melanggar hukum','Tidak membawa senjata api dalam kondisi apapun','Situasi darurat wajib hubungi 110/112'],pr:'Rp 299.000–849.000',dr:'2 jam–Full Day'},
+{id:'intip',num:14,name:'intip.in',tag:'INTEL',emoji:'🔍',motto:'intip setiap inchi, siap terima kenyataan',tagline:'Riset & Investigasi Legal',cat:['professional'],color:'#2D3748',isNew:false,desc:'Peneliti lapangan profesional — ahli observasi, verifikasi informasi, dan riset sosial yang 100% legal. Siap intip setiap inchi, kamu siap terima kenyataannya?',chips:['Riset','Investigasi','Legal'],features:['Riset & verifikasi informasi lapangan yang akurat','Social listening & monitoring online secara sistematis','Mystery shopping / audit vendor dengan laporan lengkap','Observasi kompetitor secara etis dan legal','Dokumentasi lapangan diskret dan terstruktur','Laporan temuan komprehensif siap presentasi'],pricing:[{d:'Riset online (1 hari)',p:'Rp 199.000'},{d:'Observasi lapangan (4 jam)',p:'Rp 399.000'},{d:'Paket riset (3 hari)',p:'Rp 899.000'}],restrict:['Hanya dan selalu untuk aktivitas legal dan etis','Stalking, kekerasan, dan ancaman: penolakan langsung','Tidak melanggar privasi orang lain dalam bentuk apapun','Tujuan riset WAJIB dikomunikasikan jelas saat booking'],pr:'Rp 199.000–899.000',dr:'1–3 hari'},
+{id:'naik',num:15,name:'naik.in',tag:'SUMMIT',emoji:'🏔️',motto:'naikin bareng, turunin bareng',tagline:'Mountain Companion',cat:['tatap-muka','adventure'],color:'#2F5233',isNew:false,desc:'Teman pendakian yang hafal trek, bisa baca cuaca, dan tidak drama di ketinggian. Naik bareng, turun bareng — tidak ada yang ditinggal di shelter.',chips:['Gunung','Outdoor','Petualangan'],features:['Pendamping pendakian dengan pengalaman 10+ gunung','Briefing persiapan fisik & packing yang tidak mubazir','Navigasi jalur & manajemen risiko pendakian','Dokumentasi perjalanan di setiap titik memorable','P3K dasar & emergency protocol siap dieksekusi','Motivasi di tanjakan — tidak ikut-ikutan nangis'],pricing:[{d:'Day hike (1 hari)',p:'Rp 349.000'},{d:'2 hari 1 malam',p:'Rp 649.000'},{d:'Ekspedisi 3+ hari',p:'Rp 999.000'}],restrict:['Biaya transportasi & logistik di luar harga layanan','Kondisi fisik dan riwayat kesehatan WAJIB dikomunikasikan','Cuaca ekstrem bisa batalkan sesi — refund sesuai kebijakan','Perizinan pendakian adalah tanggung jawab klien sepenuhnya'],pr:'Rp 349.000–999.000',dr:'Day hike–3 hari+'},
+{id:'main',num:16,name:'main.in',tag:'GAMING',emoji:'🎮',motto:'gak cuman dimainin',tagline:'Gaming & Push Rank Companion',cat:['virtual'],color:'#3B0764',isNew:false,desc:'Teman main game serius yang tidak akan AFK, tidak akan feed, dan tidak akan blame kamu setelah kalah. Gak cuman dimainin — kamu yang jadi main character.',chips:['Gaming','Rank','Virtual'],features:['Teman main game aktif di berbagai platform','Bantuan push rank dengan strategi yang terukur','Coaching dasar in-game yang langsung bisa dipakai','Voice/chat aktif dan responsif selama sesi','Analisis replay & tips improvement yang jujur','Request champion, hero, atau role spesifik'],pricing:[{d:'2 jam gaming',p:'Rp 69.000'},{d:'4 jam (push rank)',p:'Rp 119.000'},{d:'Full Day grind (8 jam)',p:'Rp 199.000'}],restrict:['Tidak untuk joki akun — melanggar ToS game dan prinsip kami','Talent bermain di akun sendiri, bukan akun klien','Tidak ada jaminan naik rank — kalau bisa dijamin, bukan game namanya','Tidak untuk cheat, hack, atau exploit apapun'],pr:'Rp 69.000–199.000',dr:'2–8 jam'},
+{id:'gerayang',num:17,name:'gerayang.in',tag:'WELLNESS',emoji:'💆',motto:'grepe grepe sampe kretek',tagline:'Certified Massage BNSP',cat:['tatap-muka','wellness'],color:'#6B3FA0',isNew:false,desc:'Pijat profesional bersertifikat BNSP — grepe-grepe sampai kretek, dalam koridor wellness yang proper. Sopan, standar, dan bikin badan serasa baru.',chips:['Pijat','BNSP','Relaksasi'],features:['Pijat relaksasi full body bersertifikat BNSP','Pilihan teknik: Swedish, deep tissue, atau akupresur','Konsultasi keluhan dan area fokus pre-sesi','Aromaterapi dengan essential oil pilihan (opsional)','Hot stone therapy untuk paket premium','Aftercare tips & panduan stretching mandiri post-sesi'],pricing:[{d:'60 menit (relaksasi)',p:'Rp 179.000'},{d:'90 menit (deep tissue)',p:'Rp 269.000'},{d:'120 menit (premium spa)',p:'Rp 379.000'}],restrict:['Layanan terbatas pada wellness yang terstandarisasi BNSP','Tidak ada layanan apapun di luar standar — sama sekali','Klien yang berperilaku tidak sopan: sesi dihentikan, refund nol','Sertifikat BNSP talent tersedia untuk diverifikasi kapanpun'],pr:'Rp 179.000–379.000',dr:'60–120 menit'},
+{id:'jilat',num:18,name:'jilat.in',tag:'ADVISOR',emoji:'📊',motto:'kita kasih muka supaya gak nyari-nyari muka',tagline:'Career & Bisnis (Anti-Jilat) Advisor',cat:['professional'],color:'#7B341E',isNew:false,desc:'Advisor karir dan bisnis yang jujur dan strategis. Kami kasih kamu muka supaya kamu tidak perlu nyari-nyari muka ke sana ke sini.',chips:['Karir','Bisnis','Anti-Jilat'],features:['Konsultasi strategi karir dengan peta jalan yang jelas','Personal branding profesional yang autentik','Coaching negosiasi gaji & promosi yang tidak awkward','Strategi networking anti-jilat: naik karena layak','Review CV, LinkedIn & portofolio yang jujur','Simulasi meeting & presentasi ke atasan sebelum hari H'],pricing:[{d:'Career consult (60 mnt)',p:'Rp 149.000'},{d:'Strategy session (2 jam)',p:'Rp 269.000'},{d:'Paket monthly (4 sesi)',p:'Rp 849.000'}],restrict:['Bukan konsultan hukum, pajak, atau investasi berlisensi','Saran adalah perspektif profesional, bukan jaminan sukses','Tidak untuk kegiatan tidak etis atau manipulatif','Privasi informasi perusahaan klien dijaga ketat dengan NDA'],pr:'Rp 149.000–849.000',dr:'60 mnt–4 sesi'},
+{id:'gendong',num:19,name:'gendong.in',tag:'PARENTING',emoji:'👶',motto:'gendong yang gak mehong',tagline:'Parenting Advisor',cat:['professional'],color:'#065F46',isNew:false,desc:'Teman diskusi parenting yang mendengarkan tanpa menghakimi. Gendong yang tidak mehong — karena jadi orang tua sudah cukup berat, tidak perlu ditambah judgement.',chips:['Parenting','Anak','Konsultasi'],features:['Konsultasi pola asuh & milestone tumbuh kembang anak','Diskusi strategi tantrum & sleep training yang realistis','Review stimulasi anak sesuai usia tanpa pressure','Referral ke psikolog atau dokter anak jika perlu','Tips komunikasi efektif dengan anak berbagai usia','Dukungan emosional untuk orang tua baru yang overwhelmed'],pricing:[{d:'Konsultasi (60 mnt)',p:'Rp 129.000'},{d:'Deep dive (2 jam)',p:'Rp 239.000'},{d:'Paket bulanan (4 sesi)',p:'Rp 749.000'}],restrict:['Bukan psikolog atau dokter anak berlisensi','Saran bersifat informasi & perspektif parenting, bukan diagnosis','Tidak menggantikan konsultasi medis dalam kondisi apapun','Tidak menerima titipan anak secara fisik dalam sesi'],pr:'Rp 129.000–749.000',dr:'60 mnt–4 sesi'},
+{id:'mandi',num:20,name:'mandi.in',tag:'PET CARE',emoji:'🐾',motto:'yang basah dia, yang senang kamu',tagline:'Pet Care & Grooming',cat:['tatap-muka','lifestyle'],color:'#0E7490',isNew:false,desc:'Bukan mandiin kamu. Pet care profesional untuk hewan peliharaan kesayanganmu — yang basah hewannya, yang senang kamu (dan hewannya juga ternyata).',chips:['Hewan','Grooming','Perawatan'],features:['Grooming lengkap: mandi, sisir, potong kuku, ear cleaning','Pet sitting & sesi bermain yang penuh kasih sayang','Pemberian makan & suplemen sesuai jadwal yang kamu buat','Dog walking / cat play session yang aktif dan fun','Laporan kondisi hewan setiap akhir sesi via foto/video','Koordinasi ke vet terdekat jika ada kondisi darurat'],pricing:[{d:'Grooming dasar (60 mnt)',p:'Rp 89.000'},{d:'Pet sitting (Half Day)',p:'Rp 179.000'},{d:'Full Day + grooming',p:'Rp 299.000'}],restrict:['Jenis hewan dan kondisi kesehatan wajib dikomunikasikan di awal','Hewan agresif WAJIB dideklarasikan saat booking','Tidak untuk hewan liar, berbahaya, atau tidak divaksin','Kesehatan hewan adalah tanggung jawab pemilik'],pr:'Rp 89.000–299.000',dr:'60 mnt–Full Day'},
+{id:'sedot',num:21,name:'sedot.in',tag:'CLEANING',emoji:'🧹',motto:'sedot sampai titik terdalam',tagline:'Deep Clean Specialist',cat:['tatap-muka','lifestyle'],color:'#1D4ED8',isNew:false,desc:'Vacuum karpet, sofa, kasur, dan seisi rumah sampai titik terdalam — tuntas tanpa drama. Untuk momen ketika rumah sudah melampaui batas "nanti-nanti".',chips:['Deep Clean','Vacuum','Rapi'],features:['Vacuum profesional: karpet, sofa, kasur, dan celah tersembunyi','Deep clean area dapur & kamar mandi secara menyeluruh','Lap & desinfeksi permukaan dengan produk yang aman','Pembersihan ventilasi, sela-sela, dan sudut mati','Pengelolaan sampah & sortir barang yang sudah tidak perlu','Laporan kondisi ruangan lengkap sebelum vs sesudah'],pricing:[{d:'Studio/1 kamar (2-3 jam)',p:'Rp 199.000'},{d:'2-3 kamar (4-5 jam)',p:'Rp 349.000'},{d:'Rumah besar / kantor',p:'Rp 549.000'}],restrict:['Klien wajib mengamankan barang berharga sebelum sesi','Tidak untuk konstruksi, renovasi, atau pemindahan furnitur berat','Area sangat ekstra berantakan mungkin kena biaya tambahan','Kehilangan barang wajib dilaporkan saat sesi masih berlangsung'],pr:'Rp 199.000–549.000',dr:'2–8 jam'},
+{id:'enak',num:22,name:'enak.in',tag:'ANALYST',emoji:'📑',motto:'kita bikin enak, biar kamu pede',tagline:'Data Analyst, Summary & Slide Specialist',cat:['professional'],color:'#9D174D',isNew:false,desc:'Data analyst, summary, dan slide specialist dalam satu paket. Kami bikin semuanya enak — enak dibaca, enak dilihat, enak dipresentasikan. Kamu tinggal pede.',chips:['Data','Presentasi','Summary'],features:['Analisis data dasar dengan insight yang actionable','Simplifikasi dokumen panjang jadi ringkasan tajam','Desain slide yang visual, menarik, dan tidak bikin ngantuk','Storytelling framework untuk pitch, report, atau proposal','Infografis & data visualization yang mudah dipahami','Rehearsal & coaching presentasi biar tidak demam panggung'],pricing:[{d:'Summary dokumen (maks 20 hal)',p:'Rp 149.000'},{d:'Presentasi 10-15 slide',p:'Rp 279.000'},{d:'Analisis data + full deck',p:'Rp 549.000'}],restrict:['Revisi maksimal 2 kali per paket','File sumber data/dokumen wajib dikirim lengkap saat booking','Tenggat pengerjaan minimum 24 jam dari booking','Konten sensitif atau rahasia dilindungi dengan NDA'],pr:'Rp 149.000–549.000',dr:'Summary–Full deck'},
+{id:'basah',num:23,name:'basah.in',tag:'LAUNDRY',emoji:'🧺',motto:'gak pake alat juga siap',tagline:'Manual Laundry Companion',cat:['tatap-muka','lifestyle'],color:'#1A6B8A',isNew:false,desc:'Tidak ada mesin cuci? Gak pakai alat juga siap. Teman cuci baju yang terampil, sabar, dan tidak akan menghakimi seberapa lama cucian itu numpuk.',chips:['Cuci','Manual','Rapi'],features:['Cuci manual total: kucek, sikat, bilas, peras — tanpa mesin','Pemilahan pakaian berdasarkan warna, bahan, dan tingkat kotor','Pre-treatment noda bandel: kopi, saus, dan lain-lain','Jemuran rapi dan terorganisir per kategori pakaian','Lipat & susun baju setelah kering (opsional, tambah waktu)','Tips perawatan bahan spesifik: sutra, wol, denim, batik'],pricing:[{d:'Hingga 2 ember (2 jam)',p:'Rp 89.000'},{d:'Hingga 5 ember (4 jam)',p:'Rp 159.000'},{d:'Full laundry day (8 jam)',p:'Rp 279.000'}],restrict:['Sabun, pewangi & peralatan cuci disediakan oleh klien','Tidak untuk dry-cleaning atau bahan ultra-sensitif','Tidak untuk laundry komersial atau bisnis massal','Talent berhak menolak jika kondisi sanitasi tidak layak'],pr:'Rp 89.000–279.000',dr:'2 ember–Full Day'},
+{id:'keluar',num:24,name:'keluar.in',tag:'JOKES',emoji:'🤣',motto:'ngakak sampai keluar air mata',tagline:'Jokes Companion',cat:['virtual','lifestyle'],color:'#D97706',isNew:true,desc:'Teman jokes profesional yang bisa bikin kamu ngakak sampai keluar air mata. Stand-up ringan, cerita lucu, bapak-bapak jokes level masterclass — semua ada.',chips:['Humor','Virtual','Hiburan'],features:['Sesi jokes on-demand: dari receh sampai sophisticated','Bapak-bapak jokes level: pemula sampai grandmaster','Cerita lucu custom sesuai situasi & mood kamu','Stand-up comedy mini (5-10 menit) kalau butuh opener','Dark humor tersedia dengan disclaimer penuh','Tebak-tebakan & wordplay yang bikin otak aktif'],pricing:[{d:'30 menit (mood booster)',p:'Rp 39.000'},{d:'60 menit (full comedy)',p:'Rp 69.000'},{d:'2 jam (comedy marathon)',p:'Rp 119.000'}],restrict:['Jokes tidak boleh menyinggung SARA dalam bentuk apapun','Konten dark humor membutuhkan persetujuan eksplisit klien','Tidak untuk bahan bullying atau menyudutkan orang tertentu','Jika klien tidak tertawa, itu bukan alasan refund — namanya selera berbeda'],pr:'Rp 39.000–119.000',dr:'30 mnt–2 jam'},
+{id:'keramas',num:25,name:'keramas.in',tag:'POLITIK',emoji:'🏛️',motto:'bukan cuma cuci rambut, bisa cuci otak sampe berkelas',tagline:'Temen Insight Politik & Bernegara',cat:['virtual','professional'],color:'#1E40AF',isNew:true,desc:'Teman insight politik dan bernegara yang bisa cuci otak kamu sampai berkelas. Bukan propaganda, bukan buzzer — diskusi politik yang cerdas dan berimbang.',chips:['Politik','Wawasan','Diskusi'],features:['Diskusi politik & kebijakan publik yang berimbang','Bedah berita & isu terkini dengan analisis kritis','Konteks sejarah & geopolitik yang bikin benar-benar paham','Penjelasan sistem pemerintahan yang tidak bikin ngantuk','Debat santuy tentang isu bernegara tanpa polarisasi','Rekomendasi sumber bacaan politik yang berkualitas'],pricing:[{d:'60 menit (diskusi isu)',p:'Rp 89.000'},{d:'2 jam (deep dive)',p:'Rp 159.000'},{d:'Paket weekly (4 sesi)',p:'Rp 549.000'}],restrict:['Bukan kampanye atau propaganda partai apapun','Talent wajib menjaga netralitas dan keberimbangan','Tidak untuk menyebarkan hoaks atau informasi tanpa verifikasi','Diskusi harus tetap santun meski panas — ini ruang diskusi, bukan lapangan'],pr:'Rp 89.000–549.000',dr:'60 mnt–4 sesi/minggu'},
+{id:'seger',num:26,name:'seger.in',tag:'HEALTH',emoji:'🥗',motto:'bukan cuma ngobatin, tapi ngasih kesegaran prima',tagline:'Healthy Companion',cat:['virtual','wellness'],color:'#059669',isNew:true,desc:'Teman kesehatan yang tidak hanya ngobatin tapi ngasih kesegaran prima. Dari pola makan, hidrasi, tidur, sampai wellness mindset — biar hidup segar sepanjang hari.',chips:['Kesehatan','Wellness','Gaya Hidup'],features:['Konsultasi pola makan & nutrisi yang realistis','Meal planning sederhana yang bisa langsung dieksekusi','Panduan hidrasi & kebiasaan sehat harian','Tips perbaikan kualitas tidur berbasis riset terkini','Wellness challenge mingguan yang seru dan tidak membebani','Monitoring progress kesehatan dengan pendekatan positif'],pricing:[{d:'Konsultasi (60 mnt)',p:'Rp 89.000'},{d:'Paket mingguan (3 sesi)',p:'Rp 229.000'},{d:'Paket bulanan (12 sesi)',p:'Rp 799.000'}],restrict:['Bukan dokter, ahli gizi, atau tenaga medis berlisensi','Saran kesehatan bukan pengganti konsultasi medis profesional','Tidak untuk kondisi medis serius yang butuh penanganan dokter','Hasil bergantung pada komitmen klien — kami support, bukan sulap'],pr:'Rp 89.000–799.000',dr:'60 mnt–bulanan'},
+];
+
+const FILTERS=[{k:'all',l:'Semua (26)'},{k:'virtual',l:'Virtual'},{k:'tatap-muka',l:'Tatap Muka'},{k:'wellness',l:'Wellness'},{k:'lifestyle',l:'Lifestyle'},{k:'professional',l:'Professional'},{k:'adventure',l:'Adventure'}];
+let AF='all';
+
+function buildFilters(){
+  document.getElementById('frow').innerHTML=FILTERS.map(f=>`<button class="fp ${f.k===AF?'on':''}" data-f="${f.k}">${f.l}</button>`).join('');
+  document.getElementById('frow').querySelectorAll('.fp').forEach(b=>b.addEventListener('click',()=>{AF=b.dataset.f;buildFilters();buildCards();}));
+}
+
+function buildCards(){
+  const list=AF==='all'?PKGS:PKGS.filter(p=>p.cat.includes(AF));
+  document.getElementById('pgrid').innerHTML=list.map(p=>`
+    <div class="pkc rv" onclick="openMod('${p.id}')">
+      <div class="cph">
+        <img src="${gi(p.id)}" alt="${p.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="cph-fb" style="display:none;background:${p.color}20">${p.emoji}</div>
+        <div style="position:absolute;inset:0;background:${p.color};opacity:0.30;mix-blend-mode:multiply;pointer-events:none"></div>
+        <div class="ctags"><div class="ctag">${p.tag}</div>${p.isNew?'<div class="cnew">NEW ✨</div>':''}</div>
+        <div class="cnum">${p.num}</div>
+        <div class="cemi">${p.emoji}</div>
+      </div>
+      <div class="cbody">
+        <div class="cname">${p.name}</div>
+        <div class="cmotto">"${p.motto}"</div>
+        <div class="cline" style="color:${p.color}">${p.tagline}</div>
+        <div class="cchips">${p.chips.map(c=>`<span class="chip">${c}</span>`).join('')}</div>
+        <div class="cdesc">${p.desc}</div>
+        <div class="cfoot">
+          <div><div class="cprice">${p.pr}</div><div class="cdur">${p.dr}</div></div>
+          <button class="crev" style="background:${p.color}">Detail →</button>
+        </div>
+      </div>
+    </div>`).join('');
+  document.getElementById('pgrid').querySelectorAll('.rv').forEach(el=>io.observe(el));
+}
+
+function openMod(id){
+  const p=PKGS.find(x=>x.id===id);if(!p)return;
+  const ph=document.getElementById('mph');
+  let im=ph.querySelector('img');
+  if(!im){im=document.createElement('img');ph.insertBefore(im,ph.firstChild);}
+  im.src=gi(p.id);im.alt=p.name;
+  im.onerror=function(){this.style.display='none';ph.style.background=p.color+'40';};
+  document.getElementById('mphi').innerHTML=`<div class="mt">${p.tag} · #${p.num}</div><div class="mn">${p.name}</div><div class="mm">"${p.motto}"</div>`;
+  document.getElementById('mbody').innerHTML=`
+    <div class="mtagl" style="color:${p.color}">${p.tagline}</div>
+    <div class="mdesc">${p.desc}</div>
+    <div class="mst">✅ Fasilitas yang Kamu Dapat</div>
+    <div class="mfeats">${p.features.map(f=>`<div class="mfeat">${f}</div>`).join('')}</div>
+    <div class="mst">💰 Harga & Durasi</div>
+    <div class="mtbl">${p.pricing.map(r=>`<div class="mrow"><span class="mrd">${r.d}</span><span class="mrp" style="color:${p.color}">${r.p}</span></div>`).join('')}</div>
+    <div class="mnote">* Harga belum termasuk PPN dan PPh, tapi sudah termasuk perhatian penuh.</div>
+    <div class="mst">⚠️ Batasan Penting</div>
+    <div class="mres">${p.restrict.map(r=>`<div class="mri">${r}</div>`).join('')}</div>
+    <div class="macts">
+      <button class="mbk" style="background:${p.color}" onclick="alert('Hubungi kami untuk booking ${p.name}!\\n\\n📱 0812-3456-7890\\n📷 @temen.in\\n\\nMotto: \\'${p.motto}\\'\\n\\nSampai jumpa di sesi pertama! 🎉')">Book ${p.name} →</button>
+      <button class="mclo" onclick="closeMod()">Tutup</button>
+    </div>`;
+  document.getElementById('ov').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeMod(e){
+  if(e&&e.target!==document.getElementById('ov'))return;
+  document.getElementById('ov').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMod();});
+
+const io=new IntersectionObserver(entries=>{entries.forEach(el=>{if(el.isIntersecting){el.target.classList.add('vis');io.unobserve(el.target);}});},{threshold:.08});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+function go(sel){document.querySelector(sel)?.scrollIntoView({behavior:'smooth'});}
+buildFilters();buildCards();
+</script>
+</body>
+</html>
